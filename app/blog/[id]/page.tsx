@@ -155,7 +155,7 @@ const BlogPost = ({ params }: { params: { id: string } }) => {
           {comments.length > 0 ? (
             <ul className="space-y-4">
               {comments.map((comment, index) => (
-                <li key={index} className="bg-blue-100 p-4 rounded-lg shadow-md">{comment}</li>
+                <li key={index} className="bg-blue-100  text-black  font-serif p-4 rounded-lg shadow-md">{comment}</li>
               ))}
             </ul>
           ) : (
@@ -163,7 +163,8 @@ const BlogPost = ({ params }: { params: { id: string } }) => {
           )}
           <div className="mt-6">
             <textarea
-              className="w-full p-4 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 font-serif focus:ring-blue-500 transition duration-200 ease-in-out"
+              className="w-full p-4 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 font-serif font-bold text-black
+               focus:ring-blue-500 transition duration-200 ease-in-out"
               rows={4}
               placeholder="Write your comment..."
               value={newComment}

@@ -1,8 +1,10 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Italiana } from "next/font/google";
+import "aos/dist/aos.css";
+import AOS from 'aos';
 
 // Load the Italiana font
 const italiana = Italiana({
@@ -12,7 +14,7 @@ const italiana = Italiana({
 
 const Blogpage = () => {
   const router = useRouter();
-
+ 
   const Blogpost = [
     {
       id: 1,
@@ -69,7 +71,9 @@ const Blogpage = () => {
       date: "25 December 2024",
     },
   ];
-
+  useEffect(() => {
+    AOS.init({});
+  }, []);
   return (
     <div className="bg-blue-50 md:px-10 px-4 py-12 font-[sans-serif]">
       <div className="max-w-5xl mx-auto">
@@ -78,7 +82,8 @@ const Blogpage = () => {
         >
           Latest Blogs
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"  data-aos="fade-up"
+     data-aos-duration="3000">
           {Blogpost.map((post) => (
             <div
               key={post.id}
@@ -93,8 +98,8 @@ const Blogpage = () => {
                 height={200}
                 className="w-full h-48 object-cover"
               />
-              <div className={`${italiana.className} p-6`}>
-                <h3 className="text-lg font-bold text-blue-900">{post.title}</h3>
+              <div className={`${italiana.className} p-6 data-aos="fade-down-left `} >
+                <h3 className="text-lg font-bold text-blue-900" data-aos="fade-down">{post.title}</h3>
                 <p className="text-blue-900 mt-2  font-serif">{post.description}</p>
                 <p className="text-blue-900 text-sm mt-4 font-serif">{post.date}</p>
                 <button
